@@ -1,4 +1,7 @@
 import fetch from "node-fetch";
+import * as fs from "node:fs/promises";
+import { Trie } from "./Trie.js";
+import downloadAllImages from "./downloadAllImages.js";
 
 export type Country = {
   name: string;
@@ -27,6 +30,36 @@ const fetchCountries = async () => {
   return data;
 };
 
-const countries = fetchCountries();
+const countries = await fetchCountries();
+
+// downloadAllImages(countries);
+
+const generateData = async (countries: Country[]) => {
+  const chars: { [char: string]: string } = {
+    Å: "A",
+    ç: "c",
+    é: "e",
+    ã: "a",
+    í: "i",
+  };
+  const editedCountries = countries.map((country) => {
+    return {
+      ...country,
+      name: country.name.replace(/[Åçéãí]/g, (m) => chars[m]).toLowerCase(),
+      flag: "./images/" + country.UNCode + ".svg",
+    };
+  });
+  await fs.writeFile("src/countries.json", JSON.stringify(editedCountries));
+  return JSON.stringify(editedCountries);
+};
+
+const finalData = JSON.parse(await generateData(countries));
+
+const countryTrie = new Trie();
+for (let country of finalData) {
+  countryTrie.insert(country.name);
+}
+await fs.writeFile("src/countryTrie.json", JSON.stringify(countryTrie));
+
 
 export default countries;

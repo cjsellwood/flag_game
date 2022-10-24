@@ -1,6 +1,5 @@
-import fetch from "node-fetch";
-import * as fs from "node:fs/promises";
 import { Country } from "./data";
+import * as fs from "node:fs/promises";
 
 const downloadImage = async (country: Country) => {
   const res = await fetch(country.flag);
@@ -9,9 +8,11 @@ const downloadImage = async (country: Country) => {
 };
 
 const downloadAllImages = async (countries: Country[]) => {
+  await fs.mkdir("src/images");
   let i = 0;
   const interval = setInterval(() => {
     try {
+      console.log("DOWNLOAD", countries[i].name);
       downloadImage(countries[i]);
     } catch (err) {
       console.log(err);
@@ -21,4 +22,4 @@ const downloadAllImages = async (countries: Country[]) => {
   }, 1000);
 };
 
-export {};
+export default downloadAllImages;
