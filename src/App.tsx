@@ -10,6 +10,10 @@ function App() {
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "") {
+      setSuggestions([]);
+      return;
+    }
     const possibilities = trie.findAllWords(e.target.value);
     setSuggestions(possibilities);
   };

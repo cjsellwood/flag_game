@@ -29,14 +29,15 @@ export class Trie {
 
   findAllWords(prefix: string) {
     let currentNode = this.root;
+    const words: string[] = [];
 
     for (let char of prefix) {
-      console.log(currentNode)
       if (currentNode[char]) {
         currentNode = currentNode[char];
+      } else {
+        return words;
       }
     }
-    const words: string[] = [];
     this.wordsFromNode(currentNode, words, prefix);
     return words;
   }
