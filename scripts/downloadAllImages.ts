@@ -9,12 +9,15 @@ const downloadImage = async (country: Country) => {
 };
 
 const downloadAllImages = async (countries: Country[]) => {
+  const editedCountries = countries.filter(
+    (country) => !["074", "334", "581", "663", "744"].includes(country.ISOCode)
+  );
   await fs.mkdir("public/images");
   let i = 0;
   const interval = setInterval(() => {
     try {
-      console.log("DOWNLOAD", countries[i].name);
-      downloadImage(countries[i]);
+      console.log("DOWNLOAD", editedCountries[i].name);
+      downloadImage(editedCountries[i]);
     } catch (err) {
       console.log(err);
       clearInterval(interval);

@@ -21,6 +21,7 @@ function App() {
     }
     setCurrentCountry(Math.floor(Math.random() * countries.length));
   };
+
   return (
     <div className="App">
       <Guess

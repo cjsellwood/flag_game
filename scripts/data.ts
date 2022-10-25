@@ -48,7 +48,7 @@ const generateData = async (countries: Country[]) => {
       name: country.name.replace(/[Åçéãí]/g, (m) => chars[m]).toLowerCase(),
       flag: "./images/" + country.ISOCode + ".svg",
     };
-  });
+  }).filter(country => !["074", "334", "581", "663", "744"].includes(country.ISOCode))
   await fs.writeFile("src/countries.json", JSON.stringify(editedCountries));
   return JSON.stringify(editedCountries);
 };
