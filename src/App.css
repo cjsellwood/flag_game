@@ -1,10 +1,22 @@
 .App {
-  padding: 8px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
-  background-color: rgb(187, 187, 187);
+  background-color: rgb(128, 128, 128);
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flag-container {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .flag {
@@ -12,8 +24,45 @@
   max-height: 200px;
 }
 
+.input-container {
+  width: 100%;
+  max-width: 280px;
+}
+
 .country-input {
   font-size: 16px;
-  padding: 8px;
-  margin: 8px;
+  padding: 12px 8px;
+  margin-top: 8px;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+
+.suggestion-list {
+  background-color: white;
+  max-height: 250px;
+  overflow-y: scroll;
+  width: 100%;
+  max-width: 300px;
+}
+
+.suggestion-list li {
+  font-size: 16px;
+  padding: 12px 8px;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: rgb(55, 165, 60);
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin: 12px;
+  padding: 10px 40px;
+  cursor: pointer;
+  border-radius: 8px;
 }

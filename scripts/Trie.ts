@@ -27,11 +27,12 @@ export class Trie {
     currentNode["*"] = {};
   }
 
-  findAllWords(prefix: string) {
+  findAllWords(prefix: string): string[] {
     let currentNode = this.root;
     const words: string[] = [];
 
     for (let char of prefix) {
+      // return [JSON.stringify(currentNode["b"]["u"])];
       if (currentNode[char]) {
         currentNode = currentNode[char];
       } else {

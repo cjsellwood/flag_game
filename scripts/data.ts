@@ -46,7 +46,7 @@ const generateData = async (countries: Country[]) => {
     return {
       ...country,
       name: country.name.replace(/[Åçéãí]/g, (m) => chars[m]).toLowerCase(),
-      flag: "./images/" + country.UNCode + ".svg",
+      flag: "./images/" + country.ISOCode + ".svg",
     };
   });
   await fs.writeFile("src/countries.json", JSON.stringify(editedCountries));
