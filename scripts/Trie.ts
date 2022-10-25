@@ -5,8 +5,8 @@ type TrieNode = {
 export class Trie {
   private root: TrieNode;
 
-  constructor() {
-    this.root = {};
+  constructor(root: TrieNode = {}) {
+    this.root = root;
   }
 
   public get getRoot(): TrieNode {
@@ -27,15 +27,18 @@ export class Trie {
     currentNode["*"] = {};
   }
 
-  findAllWords(prefix: string) {
+  findAllWords(prefix: string): string[] {
     let currentNode = this.root;
+    const words: string[] = [];
 
     for (let char of prefix) {
+      // return [JSON.stringify(currentNode["b"]["u"])];
       if (currentNode[char]) {
         currentNode = currentNode[char];
+      } else {
+        return words;
       }
     }
-    const words: string[] = [];
     this.wordsFromNode(currentNode, words, prefix);
     return words;
   }

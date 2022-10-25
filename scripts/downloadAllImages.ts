@@ -1,14 +1,15 @@
 import { Country } from "./data";
 import * as fs from "node:fs/promises";
+import fetch from "node-fetch";
 
 const downloadImage = async (country: Country) => {
   const res = await fetch(country.flag);
   const buffer = Buffer.from(await res.arrayBuffer());
-  await fs.writeFile("src/images/" + country.UNCode + ".svg", buffer);
+  await fs.writeFile("public/images/" + country.ISOCode + ".svg", buffer);
 };
 
 const downloadAllImages = async (countries: Country[]) => {
-  await fs.mkdir("src/images");
+  await fs.mkdir("public/images");
   let i = 0;
   const interval = setInterval(() => {
     try {

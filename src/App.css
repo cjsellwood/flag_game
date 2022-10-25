@@ -1,41 +1,77 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  background-color: rgb(43, 46, 50);
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.flag-container {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-container {
+  width: 100%;
+  max-width: 280px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.country-input {
+  font-size: 16px;
+  padding: 12px 8px;
+  margin-top: 8px;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  text-transform: capitalize;
 }
 
-.card {
-  padding: 2em;
+.suggestion-list {
+  background-color: white;
+  max-height: 250px;
+  overflow-y: scroll;
+  width: 100%;
+  max-width: 300px;
 }
 
-.read-the-docs {
-  color: #888;
+.suggestion-list li {
+  font-size: 16px;
+  padding: 12px 8px;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.submit-button {
+  background-color: rgb(55, 165, 60);
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin: 12px;
+  padding: 10px 40px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  width: 100%;
+  font-size: 18px;
+  padding: 18px;
 }
