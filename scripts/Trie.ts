@@ -5,8 +5,8 @@ type TrieNode = {
 export class Trie {
   private root: TrieNode;
 
-  constructor() {
-    this.root = {};
+  constructor(root: TrieNode = {}) {
+    this.root = root;
   }
 
   public get getRoot(): TrieNode {
@@ -31,6 +31,7 @@ export class Trie {
     let currentNode = this.root;
 
     for (let char of prefix) {
+      console.log(currentNode)
       if (currentNode[char]) {
         currentNode = currentNode[char];
       }

@@ -4,7 +4,7 @@ import * as fs from "node:fs/promises";
 const downloadImage = async (country: Country) => {
   const res = await fetch(country.flag);
   const buffer = Buffer.from(await res.arrayBuffer());
-  await fs.writeFile("src/images/" + country.UNCode + ".svg", buffer);
+  await fs.writeFile("public/images/" + country.UNCode + ".svg", buffer);
 };
 
 const downloadAllImages = async (countries: Country[]) => {
