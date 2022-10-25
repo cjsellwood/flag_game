@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: top;
   align-items: center;
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(43, 46, 50);
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -17,11 +17,6 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.flag {
-  max-width: 100%;
-  max-height: 200px;
 }
 
 .input-container {
@@ -37,6 +32,7 @@
   outline: none;
   width: 100%;
   border-bottom: 1px solid gray;
+  text-transform: capitalize;
 }
 
 .suggestion-list {
@@ -52,6 +48,7 @@
   padding: 12px 8px;
   border-bottom: 1px solid rgb(229, 229, 229);
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .submit-button {
@@ -65,4 +62,16 @@
   padding: 10px 40px;
   cursor: pointer;
   border-radius: 8px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  width: 100%;
+  font-size: 18px;
+  padding: 18px;
 }
