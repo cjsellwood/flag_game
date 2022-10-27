@@ -7,7 +7,6 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest --watchAll ./src",
     "test:scripts": "jest --watchAll ./scripts",
     "scripts": "npx ts-node --esm scripts/data.ts"
   },

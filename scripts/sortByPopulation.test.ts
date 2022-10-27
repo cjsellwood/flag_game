@@ -57,14 +57,25 @@ const countries: Country[] = [
 describe("Test partition function", () => {
   test("Values higher than pivot are on left and lower on right", () => {
     const data = [...countries];
-    expect(partition(data, 0, data.length - 1)).toEqual(1);
+    expect(partition(data, 0, data.length - 1)).toEqual(5);
     expect(
       data
-        .slice(0, 1)
-        .every((country) => country.population < data[1].population)
+        .slice(0, 5)
+        .every((country) => country.population > data[5].population)
     ).toEqual(true);
     expect(
-      data.slice(2).every((country) => country.population > data[1].population)
+      data.slice(6).every((country) => country.population < data[5].population)
     ).toEqual(true);
+  });
+});
+
+describe("Sort by population function", () => {
+  test("Sort by largest to smallest", () => {
+    const data = [...countries];
+    sortByPopulation(data, 0, data.length - 1);
+    expect(data.map((country) => country.population)).toEqual([
+      1_380_004_385, 17_500_657, 11_326_616, 9_398_861, 6_927_288, 400_132,
+      2_563,
+    ]);
   });
 });
