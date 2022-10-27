@@ -1,0 +1,42 @@
+.message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  padding-bottom: 50%;
+  background-color: rgba(0, 0, 0, 0.806);
+}
+
+.message {
+  padding: 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  border-radius: 12px;
+  gap: 12px;
+  border: 2px solid rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 250px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.message h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.message.green {
+  background-color: rgb(67, 133, 67);
+}
+
+.message.red { 
+  background-color: rgb(197, 51, 51);
+}
