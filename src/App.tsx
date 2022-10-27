@@ -11,7 +11,7 @@ const vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 
 function App() {
-  const [currentCountry, setCurrentCountry] = useState(countries.length - 1);
+  const [currentCountry, setCurrentCountry] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
   const [showMessage, setShowMessage] = useState(false);

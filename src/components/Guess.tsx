@@ -16,12 +16,17 @@ const Guess = ({ trie, country, guessFlag }: GuessProps) => {
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setCountryInput(e.target.value);
     if (e.target.value === "") {
+      setShowSuggestions(false);
       setSuggestions([]);
       return;
     }
-    setShowSuggestions(true);
     const possibilities = trie.findAllWords(e.target.value.toLowerCase());
     setSuggestions(possibilities);
+    if (!possibilities.length) {
+      setShowSuggestions(false);
+    } else {
+      setShowSuggestions(true);
+    }
   };
 
   const selectCountry = (suggestion: string) => {
@@ -45,6 +50,11 @@ const Guess = ({ trie, country, guessFlag }: GuessProps) => {
           className="country-input"
           onChange={handleInput}
           value={countryInput}
+          style={{
+            borderBottomLeftRadius: showSuggestions ? "0" : "4px",
+            borderBottomRightRadius: showSuggestions ? "0" : "4px",
+          }}
+          placeholder="Guess the Flag"
         />
         {showSuggestions && (
           <ul className="suggestion-list">
