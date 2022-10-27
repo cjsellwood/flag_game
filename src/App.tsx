@@ -7,6 +7,8 @@ import Guess from "./components/Guess";
 import Message from "./components/Message";
 
 const trie = new Trie(countryTrie.root);
+const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
 
 function App() {
   const [currentCountry, setCurrentCountry] = useState(0);
@@ -38,16 +40,14 @@ function App() {
 
   return (
     <div className="App">
-      <Guess
-        trie={trie}
-        country={countries[currentCountry]}
-        guessFlag={guessFlag}
-        key={countries[currentCountry].ISOCode}
-      />
-      <footer className="footer">
-        <div>Correct: {correct}</div>
-        <div>Wrong: {wrong}</div>
-      </footer>
+      <main>
+        <Guess
+          trie={trie}
+          country={countries[currentCountry]}
+          guessFlag={guessFlag}
+          key={countries[currentCountry].ISOCode}
+        />
+      </main>
       {showMessage && (
         <Message
           country={countries[currentCountry]}
@@ -55,6 +55,10 @@ function App() {
           nextCountry={nextCountry}
         />
       )}
+      <footer className={`footer`}>
+        <div>Correct: {correct}</div>
+        <div>Wrong: {wrong}</div>
+      </footer>
     </div>
   );
 }
