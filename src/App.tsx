@@ -8,9 +8,7 @@ import Guess from "./components/Guess";
 const trie = new Trie(countryTrie.root);
 
 function App() {
-  const [currentCountry, setCurrentCountry] = useState(
-    Math.floor(Math.random() * countries.length)
-  );
+  const [currentCountry, setCurrentCountry] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
   const guessFlag = (isCorrect: boolean) => {
@@ -19,7 +17,7 @@ function App() {
     } else {
       setWrong((wrong) => wrong + 1);
     }
-    setCurrentCountry(Math.floor(Math.random() * countries.length));
+    setCurrentCountry((c) => c + 1);
   };
 
   return (

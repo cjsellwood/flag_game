@@ -72,7 +72,7 @@ describe("Test partition function", () => {
 describe("Sort by population function", () => {
   test("Sort by largest to smallest", () => {
     const data = [...countries];
-    sortByPopulation(data, 0, data.length - 1);
+    sortByPopulation(data);
     expect(data.map((country) => country.population)).toEqual([
       1_380_004_385, 17_500_657, 11_326_616, 9_398_861, 6_927_288, 400_132,
       2_563,
