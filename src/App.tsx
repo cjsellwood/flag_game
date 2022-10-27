@@ -13,7 +13,7 @@ document.documentElement.style.setProperty("--vh", `${vh}px`);
 function App() {
   const [currentCountry, setCurrentCountry] = useState(0);
   const [correct, setCorrect] = useState(0);
-  const [wrong, setWrong] = useState(0);
+  const [incorrect, setIncorrect] = useState(0);
   const [showMessage, setShowMessage] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -25,11 +25,11 @@ function App() {
       setCorrect((correct) => correct + 1);
       setIsCorrect(true);
     } else {
-      setWrong((wrong) => wrong + 1);
+      setIncorrect((incorrect) => incorrect + 1);
       setIsCorrect(false);
     }
     setShowMessage(true);
-    const messageTimer = setTimeout(nextCountry, 300000);
+    const messageTimer = setTimeout(nextCountry, 3000);
     timerRef.current = Number(messageTimer);
   };
 
@@ -64,9 +64,11 @@ function App() {
           nextCountry={nextCountry}
         />
       )}
-      <footer className={`footer`}>
-        <div>Correct: {correct}</div>
-        <div>Wrong: {wrong}</div>
+      <footer className="footer">
+        <div>
+          <div>Correct: {correct}</div>
+          <div>Incorrect: {incorrect}</div>
+        </div>
       </footer>
     </div>
   );

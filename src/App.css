@@ -6,6 +6,7 @@
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(43, 46, 50);
 }
 
 .App > main {
@@ -15,6 +16,9 @@
   justify-content: flex-start;
   height: 100%;
   padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .flag-container {
@@ -30,6 +34,16 @@
 .input-container {
   width: 100%;
   max-width: 280px;
+}
+
+@media screen and (min-width: 600px) and (min-height: 800px) {
+  .flag-container {
+    height: 400px;
+  }
+
+  .input-container {
+    max-width: 400px;
+  }
 }
 
 .country-input {
@@ -48,6 +62,12 @@
   color: white;
 }
 
+@media screen and (min-width: 600px) and (min-height: 800px) {
+  .country-input {
+    margin-top: 24px;
+  }
+}
+
 .country-input::placeholder {
   color: rgb(170, 170, 170);
 }
@@ -57,7 +77,6 @@
   max-height: 250px;
   overflow-y: scroll;
   width: 100%;
-  max-width: 300px;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border: 1px solid rgb(140, 140, 140);
@@ -77,6 +96,10 @@
   text-overflow: ellipsis;
 }
 
+.suggestion-list li:hover {
+  background-color: rgb(68, 78, 92);
+}
+
 .suggestion-list li:last-child {
   border-bottom: 0;
 }
@@ -91,20 +114,31 @@
   margin: 12px;
   padding: 10px 40px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 6px;
   -webkit-tap-highlight-color: transparent;
 }
 
+@media screen and (min-width: 600px) and (min-height: 800px) {
+  .submit-button {
+    margin-top: 24px;
+  }
+}
+
 .footer {
+  width: 100%;
+  font-size: 18px;
+  background-color: rgb(32, 34, 37);
+}
+
+.footer > div {
+  max-width: 1200px;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
-  color: white;
-  width: 100vw;
-  font-size: 18px;
-  background-color: rgb(32, 34, 37);
   height: 50px;
+  margin: 0 auto;
+  color: white;
 }
 
 .finished {
