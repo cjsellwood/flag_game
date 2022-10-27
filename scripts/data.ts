@@ -2,6 +2,7 @@ import fetch from "node-fetch";
 import * as fs from "node:fs/promises";
 import { Trie } from "./Trie.js";
 import downloadAllImages from "./downloadAllImages.js";
+import sortByPopulation from "./sortByPopulation.js";
 
 export type Country = {
   name: string;
@@ -42,14 +43,22 @@ const generateData = async (countries: Country[]) => {
     ã: "a",
     í: "i",
   };
-  const editedCountries = countries.map((country) => {
-    return {
-      ...country,
-      name: country.name.replace(/[Åçéãí]/g, (m) => chars[m]).toLowerCase(),
-      flag: "./images/" + country.ISOCode + ".svg",
-    };
-  }).filter(country => !["074", "334", "581", "663", "744"].includes(country.ISOCode))
-  await fs.writeFile("src/countries.json", JSON.stringify(editedCountries));
+  const editedCountries = countries
+    .map((country) => {
+      return {
+        ...country,
+        name: country.name.replace(/[Åçéãí]/g, (m) => chars[m]).toLowerCase(),
+        flag: "./images/" + country.ISOCode + ".svg",
+      };
+    })
+    .filter(
+      (country) =>
+        !["074", "334", "581", "663", "744"].includes(country.ISOCode)
+    );
+  const sorted = [...editedCountries];
+  sortByPopulation(sorted);
+
+  await fs.writeFile("src/countries.json", JSON.stringify(sorted));
   return JSON.stringify(editedCountries);
 };
 
@@ -60,6 +69,5 @@ for (let country of finalData) {
   countryTrie.insert(country.name);
 }
 await fs.writeFile("src/countryTrie.json", JSON.stringify(countryTrie));
-
 
 export default countries;
