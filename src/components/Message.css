@@ -20,8 +20,23 @@
   text-transform: capitalize;
   border-radius: 12px;
   gap: 12px;
+  border: 2px solid rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 250px;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .message h1 {
   font-size: 20px;
+  font-weight: bold;
+}
+
+.message.green {
+  background-color: rgb(67, 133, 67);
+}
+
+.message.red { 
+  background-color: rgb(197, 51, 51);
 }

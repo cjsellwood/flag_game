@@ -11,11 +11,12 @@ const vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 
 function App() {
-  const [currentCountry, setCurrentCountry] = useState(0);
+  const [currentCountry, setCurrentCountry] = useState(countries.length - 1);
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
   const [showMessage, setShowMessage] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [finished, setFinished] = useState(false);
 
   const timerRef = useRef(0);
 
@@ -28,26 +29,34 @@ function App() {
       setIsCorrect(false);
     }
     setShowMessage(true);
-    const messageTimer = setTimeout(nextCountry, 3000);
+    const messageTimer = setTimeout(nextCountry, 300000);
     timerRef.current = Number(messageTimer);
   };
 
   const nextCountry = () => {
     clearTimeout(timerRef.current);
     setShowMessage(false);
+    if (currentCountry + 1 === countries.length) {
+      setFinished(true);
+      return;
+    }
     setCurrentCountry((i) => i + 1);
   };
 
   return (
     <div className="App">
-      <main>
-        <Guess
-          trie={trie}
-          country={countries[currentCountry]}
-          guessFlag={guessFlag}
-          key={countries[currentCountry].ISOCode}
-        />
-      </main>
+      {!finished ? (
+        <main>
+          <Guess
+            trie={trie}
+            country={countries[currentCountry]}
+            guessFlag={guessFlag}
+            key={countries[currentCountry].ISOCode}
+          />
+        </main>
+      ) : (
+        <h1 className="finished">Finished</h1>
+      )}
       {showMessage && (
         <Message
           country={countries[currentCountry]}

@@ -10,10 +10,7 @@ interface MessageProps {
 const Message = ({ country, isCorrect, nextCountry }: MessageProps) => {
   return (
     <div className="message-container" onClick={nextCountry}>
-      <div
-        className="message"
-        style={{ backgroundColor: isCorrect ? "green" : "red" }}
-      >
+      <div className={"message " + `${isCorrect ? "green" : "red"}`}>
         <h1>{country.name}</h1>
         <p>Population: {country.population.toLocaleString()}</p>
       </div>
