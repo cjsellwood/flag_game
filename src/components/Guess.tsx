@@ -30,7 +30,6 @@ const Guess = ({ trie, country, guessFlag }: GuessProps) => {
   };
 
   const submitAnswer = () => {
-    console.log(country.name, countryInput);
     guessFlag(country.name === countryInput);
   };
   return (

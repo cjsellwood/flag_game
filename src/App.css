@@ -27,11 +27,11 @@
 .country-input {
   font-size: 16px;
   padding: 12px 8px;
-  margin-top: 8px;
+  margin-top: 16px;
   border: none;
   outline: none;
   width: 100%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(154, 154, 154);
   text-transform: capitalize;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .submit-button {
-  background-color: rgb(55, 165, 60);
+  background-color: rgb(41, 79, 161);
   color: white;
   font-weight: bold;
   border: none;
@@ -74,4 +74,5 @@
   width: 100%;
   font-size: 18px;
   padding: 18px;
+  background-color: rgb(32, 34, 37);
 }
