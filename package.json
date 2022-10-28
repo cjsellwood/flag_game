@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test:scripts": "jest --watchAll ./scripts",
-    "scripts": "npx ts-node --esm scripts/data.ts"
+    "scripts": "npx ts-node --esm scripts/data.ts",
+    "test:scripts": "jest --watchAll ./scripts"
   },
   "dependencies": {
     "jest": "^29.2.1",
