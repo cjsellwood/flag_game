@@ -45,6 +45,13 @@ const generateData = async (countries: Country[]) => {
   };
   const editedCountries = countries
     .map((country) => {
+      if (country.name === "kosovo") {
+        return {
+          ...country,
+          name: country.name.replace(/[Åçéãí]/g, (m) => chars[m]).toLowerCase(),
+          flag: "./images/9999.svg",
+        };
+      }
       return {
         ...country,
         name: country.name.replace(/[Åçéãí]/g, (m) => chars[m]).toLowerCase(),
@@ -55,6 +62,7 @@ const generateData = async (countries: Country[]) => {
       (country) =>
         !["074", "334", "581", "663", "744"].includes(country.ISOCode)
     );
+  
   const sorted = [...editedCountries];
   sortByPopulation(sorted);
 
